@@ -6,35 +6,34 @@ using System.Threading.Tasks;
 
 namespace DataStructureStacks
 {
-   public class LinkedListQueue
+    public class LinkedListQueue
     {
         Node head = null;
+
         internal void Enqueue(int data)
         {
             Node node = new Node(data);
-            if (head  == null)
+            if (head == null)
             {
                 head = node;
             }
             else
             {
                 Node temp = head;
-                while(temp.next != null)
+                while (temp.next != null)
                 {
                     temp = temp.next;
 
                 }
                 temp.next = node;
-                Console.WriteLine("{0} inserted into queue", node.data);
-
-            }          
-
+            }
+            Console.WriteLine("{0} inserted into queue", node.data);
         }
         internal void Display()
 
         {
             Node temp = this.head;
-            if(temp == null)
+            if (temp == null)
             {
                 Console.WriteLine("Queue is empty");
                 return;
@@ -45,5 +44,18 @@ namespace DataStructureStacks
                 temp = temp.next;
             }
         }
+        internal void Dequeue()
+        {
+            if(this.head == null)
+            {
+                Console.WriteLine("queue is empty,Deletion is not possible");
+                return ;
+            }
+
+            head = head.next;
+
+        }
+
+        
     }
 }
